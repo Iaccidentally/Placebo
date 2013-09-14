@@ -27,32 +27,13 @@
  */
 package me.iaccidentally.placebo;
 
-import org.bukkit.Bukkit;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.scheduler.BukkitTask;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.Proxy;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.UUID;
-import java.util.logging.Level;
-import java.util.zip.GZIPOutputStream;
 
 public class Metrics {
 
@@ -77,34 +58,9 @@ public class Metrics {
     private static final Integer PING_INTERVAL = null;
 
     /**
-     * The plugin this metrics submits for
-     */
-    private final Plugin plugin;
-
-    /**
      * All of the custom graphs to submit to metrics
      */
     private final Set<Graph> graphs = null;
-
-    /**
-     * The plugin configuration file
-     */
-    private final YamlConfiguration configuration;
-
-    /**
-     * The plugin configuration file
-     */
-    private final File configurationFile;
-
-    /**
-     * Unique server id
-     */
-    private final String guid;
-
-    /**
-     * Debug mode
-     */
-    private final boolean debug;
 
     /**
      * Lock for synchronization
@@ -117,7 +73,7 @@ public class Metrics {
     private volatile BukkitTask task = null;
 
     public Metrics(final Plugin plugin) throws IOException {
-        
+
     }
 
     /**
@@ -128,7 +84,7 @@ public class Metrics {
      * @return Graph object created. Will never return NULL under normal circumstances unless bad parameters are given
      */
     public Graph createGraph(final String name) {
-        
+        return null;
     }
 
     /**
@@ -137,7 +93,7 @@ public class Metrics {
      * @param graph The name of the graph
      */
     public void addGraph(final Graph graph) {
-       
+
     }
 
     /**
@@ -148,7 +104,7 @@ public class Metrics {
      * @return True if statistics measuring is running, otherwise false.
      */
     public boolean start() {
-        
+        return true;
     }
 
     /**
@@ -157,7 +113,7 @@ public class Metrics {
      * @return true if metrics should be opted out of it
      */
     public boolean isOptOut() {
-        
+        return false;
     }
 
     /**
@@ -166,7 +122,7 @@ public class Metrics {
      * @throws java.io.IOException
      */
     public void enable() throws IOException {
-        
+
     }
 
     /**
@@ -175,7 +131,7 @@ public class Metrics {
      * @throws java.io.IOException
      */
     public void disable() throws IOException {
-        
+
     }
 
     /**
@@ -184,14 +140,14 @@ public class Metrics {
      * @return the File object for the config file
      */
     public File getConfigFile() {
-        
+        return null;
     }
 
     /**
      * Generic method that posts a plugin to the metrics website
      */
     private void postPlugin(final boolean isPing) throws IOException {
-        
+
     }
 
     /**
@@ -201,7 +157,7 @@ public class Metrics {
      * @return
      */
     public static byte[] gzip(String input) {
-        
+        return new byte[10];
     }
 
     /**
@@ -210,7 +166,7 @@ public class Metrics {
      * @return true if mineshafter is installed on the server
      */
     private boolean isMineshafterPresent() {
-        
+        return false;
     }
 
     /**
@@ -222,7 +178,7 @@ public class Metrics {
      * @throws UnsupportedEncodingException
      */
     private static void appendJSONPair(StringBuilder json, String key, String value) throws UnsupportedEncodingException {
-        
+
     }
 
     /**
@@ -232,7 +188,7 @@ public class Metrics {
      * @return
      */
     private static String escapeJSON(String text) {
-        
+        return null;
     }
 
     /**
@@ -242,18 +198,13 @@ public class Metrics {
      * @return the encoded text, as UTF-8
      */
     private static String urlEncode(final String text) throws UnsupportedEncodingException {
+        return null;
     }
 
     /**
      * Represents a custom graph on the website
      */
     public static class Graph {
-
-        /**
-         * The graph's name, alphanumeric and spaces only :) If it does not comply to the above when submitted, it is
-         * rejected
-         */
-        private final String name;
 
         /**
          * The set of plotters that are contained within this graph
@@ -269,6 +220,7 @@ public class Metrics {
          * @return the Graph's name
          */
         public String getName() {
+            return null;
         }
 
         /**
@@ -293,15 +245,7 @@ public class Metrics {
          * @return an unmodifiable {@link java.util.Set} of the plotter objects
          */
         public Set<Plotter> getPlotters() {
-        }
-
-        @Override
-        public int hashCode() {
-        }
-
-        @Override
-        public boolean equals(final Object object) {
- 
+            return null;
         }
 
         /**
@@ -315,11 +259,6 @@ public class Metrics {
      * Interface used to collect custom data for a plugin
      */
     public static abstract class Plotter {
-
-        /**
-         * The plot's name
-         */
-        private final String name;
 
         /**
          * Construct a plotter with the default plot name
@@ -350,6 +289,7 @@ public class Metrics {
          * @return the plotted point's column name
          */
         public String getColumnName() {
+            return null;
         }
 
         /**
@@ -358,13 +298,5 @@ public class Metrics {
         public void reset() {
         }
 
-        @Override
-        public int hashCode() {
-        }
-
-        @Override
-        public boolean equals(final Object object) {
-            
-        }
     }
 }
